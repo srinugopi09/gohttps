@@ -31,10 +31,10 @@ RUN set -ex; CGO_ENABLED=0 GOOS=linux GOARCH=amd64; go build -a -o golang-memtes
 FROM scratch
 # Copy our static executable.
 #COPY --from=builder /go/bin/hello /go/bin/hello
-COPY --from=builder /build/* .
+COPY --from=builder /go/app/* .
 #COPY  --from=builder /go/bin/cata* /go/bin/
 # Run the hello binary.
-ENTRYPOINT [ "./golang-memtest" ]
+ENTRYPOINT [ "/go/app/golang-memtest" ]
 CMD [ "3", "300" ]
 
 #ENTRYPOINT ["echo", "Hello World"]
