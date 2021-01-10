@@ -4,7 +4,7 @@
 FROM golang:alpine AS builder
 # Install git.
 # Git is required for fetching the dependencies.
-RUN apk update && apk add --no-cache git
+RUN apk update && apk add --no-cache git build-base
 # WORKDIR $GOPATH/src/mypackage/myapp/
 # COPY . .
 # COPY catalog.istioinaction.io.cert.pem   /go/bin
