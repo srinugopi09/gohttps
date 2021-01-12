@@ -16,7 +16,7 @@ func HelloServer(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	http.HandleFunc("/hello", HelloServer)
-	err := http.ListenAndServeTLS(":8080", "catalog.istioinaction.io.cert.pem", "catalog.istioinaction.io.key.pem", nil)
+	err := http.ListenAndServeTLS(":8080", "certificate.pem", "key.pem", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
